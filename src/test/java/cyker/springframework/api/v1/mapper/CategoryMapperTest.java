@@ -9,17 +9,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CategoryMapperTest {
 
+    public static final long ID = 1L;
+    public static  final String NAME = "Joe";
     CategoryMapper categoryMapper = CategoryMapper.INSTANCE;
     @Test
     public void categoryToCategoryDTO() throws Exception {
 
         Category category = new Category();
-        category.setName("Joe");
-        category.setId(1L);
+        category.setName(NAME);
+        category.setId(ID);
 
         CategoryDTO categoryDTO = categoryMapper.categoryToCategoryDTO(category);
 
-        assertEquals(Long.valueOf(1L), categoryDTO.getId());
-        assertEquals("Joe", categoryDTO.getName());
+        assertEquals(Long.valueOf(ID), categoryDTO.getId());
+        assertEquals(NAME, categoryDTO.getName());
     }
 }

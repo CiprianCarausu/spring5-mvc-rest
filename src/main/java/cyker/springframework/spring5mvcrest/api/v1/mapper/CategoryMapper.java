@@ -2,13 +2,14 @@ package cyker.springframework.spring5mvcrest.api.v1.mapper;
 
 import cyker.springframework.spring5mvcrest.api.v1.model.CategoryDTO;
 import cyker.springframework.spring5mvcrest.domain.Category;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-import org.springframework.stereotype.Component;
-
-@Component
+@Mapper
 public interface CategoryMapper {
 
     CategoryMapper INSTANCE = Mappers.getMapper(CategoryMapper.class);
 
+    @Mapping(source = "id", target = "id")
     CategoryDTO categoryToCategoryDTO(Category category);
 }
